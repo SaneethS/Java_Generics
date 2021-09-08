@@ -1,22 +1,22 @@
 package com.maximumproblem;
 
 public class Maximum {
-	Float x;
-	Float y;
-	Float z;
+	String x;
+	String y;
+	String z;
 	
-	public Maximum(Float x, Float y, Float z) {
+	public Maximum(String x, String y, String z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 	
-	public Float maximum() {
+	public String maximum() {
 		return Maximum.maximum(x,y,z);
 	}
 
-	private static Float maximum(Float x2, Float y2, Float z2) {
-		Float max = x2;
+	private static String maximum(String x2, String y2, String z2) {
+		String max = x2;
 		
 		if(y2.compareTo(max)>0)
 			max = y2;
@@ -26,7 +26,7 @@ public class Maximum {
 		return max;
 	}
 
-	private static void display(Float x2, Float y2, Float z2, Float max) {
+	private static void display(String x2, String y2, String z2, String max) {
 		System.out.println("Max of "+x2+", "+y2+" and "+z2+" = "+max);
 	}
 	
