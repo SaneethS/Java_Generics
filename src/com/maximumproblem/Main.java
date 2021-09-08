@@ -5,13 +5,13 @@ public class Main {
 	public static void main(String[] args) {
 		System.out.println("Welcome to java generics maximum problem");
 		
-		String x = "Apple", y = "Peach", z = "Banana";//Test Case 1
-		String a = "Oreo", b = "Parle", c = "Britania";//Test Case 2
-		String p = "Sunsilk", q = "Head and Shoulders", r = "Pantene";//Test Case 3
+		String xstr = "Apple", ystr = "Peach", zstr = "Banana";//Test Case 1
+		Integer xInt = 100, yInt = 45, zInt = 32;//Test Case 2
+		Float xFlt = (float) 80.98, yFlt = (float) 12.6, zFlt = (float) 56.78;//Test Case 3
 		
-		new Maximum(x,y,z).maximum();
-		new Maximum(a,b,c).maximum();
-		new Maximum(p,q,r).maximum();
+		new Maximum(xstr,ystr,zstr).maximum();
+		new Maximum(xInt,yInt,zInt).maximum();
+		new Maximum(xFlt,yFlt,zFlt).maximum();
 	}
 
 }
