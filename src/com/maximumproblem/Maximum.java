@@ -1,22 +1,20 @@
 package com.maximumproblem;
 
-public class Maximum {
-	String x;
-	String y;
-	String z;
+public class Maximum<T extends Comparable<T>> {
+	T x,y,z;
 	
-	public Maximum(String x, String y, String z) {
+	public Maximum(T x, T y, T z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
 	
-	public String maximum() {
+	public T maximum() {
 		return Maximum.maximum(x,y,z);
 	}
 
-	private static String maximum(String x2, String y2, String z2) {
-		String max = x2;
+	private static <T extends Comparable<T>> T maximum(T x2, T y2, T z2) {
+		T max = x2;
 		
 		if(y2.compareTo(max)>0)
 			max = y2;
@@ -26,7 +24,7 @@ public class Maximum {
 		return max;
 	}
 
-	private static void display(String x2, String y2, String z2, String max) {
+	private static<T extends Comparable<T>> void display(T x2, T y2, T z2, T max) {
 		System.out.println("Max of "+x2+", "+y2+" and "+z2+" = "+max);
 	}
 	
