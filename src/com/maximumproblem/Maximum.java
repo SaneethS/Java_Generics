@@ -1,31 +1,52 @@
 package com.maximumproblem;
 
+import java.util.*;
+
+/**
+ * @author saneeths
+ *this is the class where the maximum  values are found out the generic function is formed
+ *and the comparable class is extended
+ * @param <T>
+ */
 public class Maximum<T extends Comparable<T>> {
-	T x,y,z;
+	List<T> list = new ArrayList<T>();//List used to store the parameters
 	
-	public Maximum(T x, T y, T z) {
-		this.x = x;
-		this.y = y;
-		this.z = z;
-	}
-	
-	public T maximum() {
-		return Maximum.maximum(x,y,z);
+	/**
+	 * @param t this method is created to add the parameters to the list and to call
+	 * the max value function here the option method is used for parameters 
+	 * 
+	 */
+	public T maximum(T...t) {
+		for(T i: t) {
+			list.add(i);
+		}
+		return Maximum.maximumValue(list);
 	}
 
-	private static <T extends Comparable<T>> T maximum(T x2, T y2, T z2) {
-		T max = x2;
-		
-		if(y2.compareTo(max)>0)
-			max = y2;
-		if(z2.compareTo(max)>0)
-			max = z2;
-		display(x2,y2,z2,max);
+	/**
+	 * This is the method where the maximum value is found out among the list of parameters
+	 * Here the sorting mathod is used to find the maximum value
+	 * 
+	 */
+	private static <T extends Comparable<T>> T maximumValue(List<T> parameters) {
+		int n = parameters.size();
+		StringBuilder builder = new StringBuilder();
+		builder.append("Max Value among ");
+		for(T i: parameters) {
+			builder.append(i+",");
+		}
+		for(int i=0 ; i<n ; i++) {
+			for(int j=0 ; j<n-i-1 ; j++) {
+				if(parameters.get(j).compareTo(parameters.get(j+1))>1) {
+					T temp = parameters.get(j);
+					parameters.set(j, parameters.get(j+1));
+					parameters.set(j+1, temp);
+				}
+			}
+		}
+		T max = parameters.get(n-1);
+		builder.append(" : "+max);
+		System.out.println(builder);
 		return max;
 	}
-
-	private static<T extends Comparable<T>> void display(T x2, T y2, T z2, T max) {
-		System.out.println("Max of "+x2+", "+y2+" and "+z2+" = "+max);
-	}
-	
 }
