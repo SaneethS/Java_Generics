@@ -32,7 +32,7 @@ public class Maximum<T extends Comparable<T>> {
 		int n = parameters.size();
 		for(int i=0 ; i<n ; i++) {
 			for(int j=0 ; j<n-i-1 ; j++) {
-				if(parameters.get(j).compareTo(parameters.get(j+1))>1) {
+				if(parameters.get(j).compareTo(parameters.get(j+1))>0) {
 					T temp = parameters.get(j);
 					parameters.set(j, parameters.get(j+1));
 					parameters.set(j+1, temp);
