@@ -30,11 +30,6 @@ public class Maximum<T extends Comparable<T>> {
 	 */
 	private static <T extends Comparable<T>> T maximumValue(List<T> parameters) {
 		int n = parameters.size();
-		StringBuilder builder = new StringBuilder();
-		builder.append("Max Value among ");
-		for(T i: parameters) {
-			builder.append(i+",");
-		}
 		for(int i=0 ; i<n ; i++) {
 			for(int j=0 ; j<n-i-1 ; j++) {
 				if(parameters.get(j).compareTo(parameters.get(j+1))>1) {
@@ -45,8 +40,21 @@ public class Maximum<T extends Comparable<T>> {
 			}
 		}
 		T max = parameters.get(n-1);
+		printMax(parameters,max);
+		return max;
+	}
+
+	/**
+	 * This method is created to display the maximum value which is internally called 
+	 * by maximum method
+	 */
+	private static<T> void printMax(List<T> parameters, T max) {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Max Value among ");
+		for(T i: parameters) {
+			builder.append(i+",");
+		}
 		builder.append(" : "+max);
 		System.out.println(builder);
-		return max;
 	}
 }
